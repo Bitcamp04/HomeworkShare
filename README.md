@@ -6,4 +6,4 @@
 - 이희승
 - 조장호
 ## Github Organization 권한 설정
-# your oranizations > organization 명 선택 > Settings > 왼쪽 메뉴 Memeber privileges > Base Permissions 선택
+### your oranizations > organization 명 선택 > Settings > 왼쪽 메뉴 Memeber privileges > Base Permissions 선택
