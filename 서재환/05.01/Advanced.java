@@ -32,7 +32,12 @@ class UserBook{
     int index=0;
 
     public void saveUserInfo(String username,String password){
-        users[index++]=new User(index+1,username,password);
+        try{
+            users[index++]=new User(index+1,username,password);
+        }catch(NullPointerException e){
+            System.out.println("저장 배열 초과");
+        }
+        
     }
 }
 
