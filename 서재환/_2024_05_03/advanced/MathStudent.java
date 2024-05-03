@@ -4,13 +4,15 @@ import java.util.Arrays;
 
 public class MathStudent extends CommonStat implements Student{
     private static final String major="Math";
-
-    @Override
-    public void saveInfo(int sno, String name, String[] subject, int[] finalExamScore) {
+    public MathStudent(int sno,String name) {
         this.sno=sno;
         this.name=name;
-        this.subject=subject;
-        this.finalExamScore=finalExamScore;
+    }
+    @Override
+    public void saveInfo(int index, String subject, int score) {
+        if(index>=this.subject.length || index>=this.finalExamScore.length) return;
+        this.subject[index]=subject;
+        this.finalExamScore[index]=score;
     }
 
     @Override

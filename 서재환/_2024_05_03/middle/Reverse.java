@@ -26,22 +26,24 @@ public class Reverse {
         return set.toString();
     }
     static String replace3and5(String str){
+        StringBuilder sb = new StringBuilder();
         char[] chars = str.toCharArray();
         for(int i=0;i<chars.length;i++){
             if(i==0) continue;
             if(i%3==0 && i%5==0){
-                chars[i] = '!';
+                sb.append("35");
                 continue;
             }
             if(i%3==0){
-                chars[i]='3';
+                sb.append("3");
                 continue;
             }
             if(i%5==0){
-                chars[i]='5';
+                sb.append("5");
                 continue;
             }
+            sb.append(chars[i]);
         }
-        return new String(chars);
+        return sb.toString();
     }
 }
