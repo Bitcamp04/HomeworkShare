@@ -1,4 +1,6 @@
-package homework.homework3;
+package homework.homework3.advanced;
+
+import homework.homework3.basic.User;
 
 public class UserBook {
 	
