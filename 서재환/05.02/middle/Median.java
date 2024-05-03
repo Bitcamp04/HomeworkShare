@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 class Median {
     static int med3(int a, int b, int c) {
-        if (a > b && a < c) {
+        if ((a > b && a < c)||(a < b&& a > c)) {
             return a;
         }
-        if (b > c && b < a) {
+        if ((b > c && b < a)||(b < c && b > a)) {
             return b;
         }
         return c;
