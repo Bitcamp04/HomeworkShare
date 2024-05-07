@@ -2,38 +2,66 @@ package homework05.advance;
 
 public class EngStudent extends CommonStat implements Student {
 
-	int sno;
-	String name;
-	
-	public EngStudent(int sno, String name) {
-		this.sno = sno;
-		this.name = name;
+	public EngStudent(int sno, StringBuffer name) {
+		super(sno, name);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void saveInfo(int index, String subject, int score) {
 		// TODO Auto-generated method stub
 		this.subject[index] = subject;
-		this.finalExamScore[index] = score;
+		this.finalExam[index] = score;
 	}
 
 	@Override
 	public void printInfo() {
 		// TODO Auto-generated method stub
-		System.out.println("ComStudent 학생명 : " + this.name);
-		for(int i = 0; i < this.subject.length; i++) {
-			System.out.println((i + 1) + "번째 과목명 : " + this.subject[i] + ", 기말점수 : " + this.finalExamScore[i]);
-		}
+		System.out.println("학번 : " + this.sno);
+		System.out.println("이름 : " + this.name);
+		System.out.println("평균 : " + this.getAvg());
+		System.out.println("---------------------");
 	}
 
 	@Override
 	public double getAvg() {
 		// TODO Auto-generated method stub
-		double returnAvg = 0.0;
-		for(int i = 0; i < this.finalExamScore.length; i++) {
-			returnAvg += this.finalExamScore[i];
+		double avg = 0;
+		int sum = 0;
+		
+		for(int i = 0; i < this.finalExam.length; i++) {
+			sum += this.finalExam[i];
 		}
-		return returnAvg / this.finalExamScore.length;
+		
+		avg = (double)Math.round(((double)sum / this.finalExam.length) * 100) / 100;
+		
+		return avg;
+	}
+	
+	@Override
+	public void initSubScore(int cnt) {
+		this.subject = new String[cnt];
+		this.finalExam = new int[cnt];
+	}
+	
+	@Override
+	public int getSno() {
+		return this.sno;
+	}
+	
+	@Override
+	public StringBuffer getName() {
+		return this.name;
+	}
+	
+	@Override
+	public String[] getSubject() {
+		return this.subject;
+	}
+	
+	@Override
+	public int[] getScore() {
+		return this.finalExam;
 	}
 
 }

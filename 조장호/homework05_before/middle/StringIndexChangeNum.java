@@ -16,8 +16,6 @@ public class StringIndexChangeNum {
 					rtnStr += inputStr.charAt(i);
 				}
 				
-			} else {
-				rtnStr += inputStr.charAt(i);
 			}
 		}
 		return rtnStr;

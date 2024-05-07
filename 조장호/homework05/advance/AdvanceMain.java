@@ -1,31 +1,24 @@
 package homework05.advance;
 
+import java.util.Scanner;
+
 public class AdvanceMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		MainPage mainPage = new MainPage();
 		
-		MathStudent mathStudent = new MathStudent(0, "김수학");
-		mathStudent.saveInfo(0, "수학", 100);
-		mathStudent.saveInfo(1, "영어", 70);
-		mathStudent.saveInfo(2, "컴퓨터", 50);
-		mathStudent.printInfo();
-		System.out.println("과목 평균점수 : " + mathStudent.getAvg());
+		Scanner sc = new Scanner(System.in);
 		
+		Student[] stArr = new Student[1000];
 		
-		EngStudent engStudent = new EngStudent(1, "이영어");
-		engStudent.saveInfo(0, "수학", 50);
-		engStudent.saveInfo(1, "영어", 100);
-		engStudent.saveInfo(2, "컴퓨터", 70);
-		engStudent.printInfo();
-		System.out.println("과목 평균점수 : " + engStudent.getAvg());
+		while(true) {
+			mainPage.printMenu(sc, stArr);
+		}
 		
-		ComStudent comStudent = new ComStudent(2, "최자바");
-		comStudent.saveInfo(0, "수학", 50);
-		comStudent.saveInfo(1, "영어", 70);
-		comStudent.saveInfo(2, "컴퓨터", 100);
-		comStudent.printInfo();
-		System.out.println("과목 평균점수 : " + comStudent.getAvg());
+//		System.out.println("수학과 클래스명 : " + MathStudent.class.getName());
+//		System.out.println("영문과 클래스명 : " + EngStudent.class.getName());
+//		System.out.println("컴공과 클래스명 : " + ComStudent.class.getName());
 	}
 
 }
