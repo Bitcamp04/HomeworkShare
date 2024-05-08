@@ -21,7 +21,7 @@ git remote -v
 2. git pull 원격저장소 브랜치명 (브랜치명에 원격저장소에 있는 파일 및 폴더들을 merge 시킴)
 ### 개인저장소(개인PC 드라이브 저장폴더)와 원격저장소 update 상태 확인
 - gitbash -> git status -> 빨간줄로 나오는 파일들 및 폴더들은 새로 commit 및 push 할 수 있는 것
-- 소스트리 -> history 창으로 확
+- 소스트리 -> history 창으로 확인
 ### 현재 사용중인 브랜치명 확인
 - gitbash -> git branch
 - 소스트리 -> 브랜치명 왼쪽 동그라미 표시 확인
