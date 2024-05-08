@@ -53,9 +53,12 @@ public class PrintStudentRank {
 			avgRank[rank] = stArr[i];
 		}
 		
-		for(int k = 0; k < stArr.length; k++) {
+		for(int k = 0; k < avgRank.length; k++) {
+			System.out.println("------" + major + "과 성적순위------");
+			System.out.println("순위 : " + (k + 1));
 			avgRank[k].printInfo();
 		}
+	
 	}
 	
 	// 학과별 배열을 모두 받아서 majorRank로 전달하는 메소드
