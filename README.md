@@ -5,6 +5,7 @@
 - 서재환
 - 이희승
 - 조장호
+<<<<<<< HEAD
   
 ## Github Organization 권한 설정
 ### your oranizations > organization 명 선택 > Settings > 왼쪽 메뉴 Memeber privileges > Base Permissions 선택
@@ -31,3 +32,7 @@ git remote -v
 ### 브랜치 삭제
 - gitbash -> git branch -d 브랜치명
 - 소스트리 -> 브랜치명 오른쪽클릭 후 삭제
+=======
+## Github Organization 권한 설정
+### your oranizations > organization 명 선택 > Settings > 왼쪽 메뉴 Memeber privileges > Base Permissions 선택
+>>>>>>> origin/kimbyungju
