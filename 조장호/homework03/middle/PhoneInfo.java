@@ -21,16 +21,22 @@ public class PhoneInfo {
 	public void printAllPhoneInfo() {
 	    //배열에 저장된 모든 이름과 번호를 순서대로 출력하는 기능 구현
 		for(int i = 0; i < names.length; i++) {
-			System.out.println((i + 1) + "번째 이름 : " + names[i] + ", 전화번호 : " + phoneNums[i]);
+			if(names[i] != null) {
+				System.out.println((i + 1) + "번째 이름 : " + names[i] + ", 전화번호 : " + phoneNums[i]);
+			}
 		}
 	}
 
 	public void printPhoneInfo(int index) {
 	    //매개변수로 전달된 인덱스에 해당하는 이름과 번호 출력하는 기능 구현
 		if(index >= 0 && index < 100) {
-			System.out.println("입력하신 " + index + "의 위치에 저장된 이름과 번호는 " + names[index] + ", " + phoneNums[index]);
+			if(names[index] != null) {
+				System.out.println("입력하신 " + index + "의 위치에 저장된 이름과 번호는 " + names[index] + ", " + phoneNums[index]);
+			} else {
+				System.out.println("입력하신 " + index + "의 위치에 저장된 이름과 번호는 존재하지 않습니다.");
+			}
 		} else {
-			System.out.println("해당 index는 존재하지 않습니다.");
+			System.out.println("해당 index는 사용할 수 없습니다.");
 		}
 	}
 }
