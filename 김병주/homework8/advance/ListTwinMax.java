@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ListTwinMax {
-
+//	3. 사용자가 입력한 5개의 정수를 저장하는 List<Integer>를 생성하고
+//    연속된 두 수의 합이 가장 커지는 구간의 두 수를 출력하세요.
 	public static void main(String[] args) {
 		List<Integer> intList = new ArrayList<>();
 		
