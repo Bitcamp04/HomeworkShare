@@ -3,6 +3,7 @@ package homework08.advance;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -78,7 +79,7 @@ public class Advance {
 				System.out.println(eDate);
 //				firstDate = new Date(firstCal.getTimeInMillis());
 			}
-		} else {
+		} else if(firstCal.getTimeInMillis() < SecondCal.getTimeInMillis()){
 			long diff = (SecondCal.getTimeInMillis() - firstCal.getTimeInMillis()) / ((long) 1000 * 60 * 60 * 24);
 //			System.out.println(diff);
 			for(long i = 1; i < diff; i++) {
@@ -89,6 +90,9 @@ public class Advance {
 				System.out.println(fDate);
 //				firstDate = new Date(firstCal.getTimeInMillis());
 			}
+		} else {
+			// 2024.05.10 입력한 두 개의 날짜 조건도 추가
+			System.out.println("두 날짜는 같습니다.");
 		}
 		
 		// 3. 사용자가 입력한 5개의 정수를 저장하는 List<Integer>를 생성하고
@@ -124,10 +128,10 @@ public class Advance {
 			System.out.println(i + "번째 숫자를 입력해주세요.");
 			sixNumArr.add(sc.nextInt());
 		}
-		
+		// 2024.05.10 k 시작값 j 빼먹음( 1 -> j + 1로 변경 )
 		int sum = 0;
 		for(int j = 0; j < sixNumArr.size() - 1; j++) {
-			for(int k = 1; k < sixNumArr.size(); k++) {
+			for(int k = j + 1; k < sixNumArr.size(); k++) {
 				sum = sixNumArr.get(j) + sixNumArr.get(k);
 				if(!sumArr1.contains(sum)) {
 					sumArr1.add(sum);
@@ -139,6 +143,7 @@ public class Advance {
 		System.out.println("one : " + sumArr1.toString());
 		System.out.println("two : " + sumArr2.toString());
 		sumArr1.removeAll(sumArr2);
+		Collections.sort(sumArr1);
 		System.out.println("합의 개수 : " + sumArr1.size() + " 형태 : " + sumArr1.toString());
 		
 		sc.close();

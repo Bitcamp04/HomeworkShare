@@ -2,6 +2,7 @@ package homework01.basic;
 
 public class basicTest06 {
 
+	// 6. 1 ~ 100까지 합을 while문으로 출력
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

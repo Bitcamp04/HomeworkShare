@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class basicTest12 {
 
+	/*
+	 * 12. 정수 10개를 입력받아 배열에 저장하고, 
+    	   이 정수 중에서 2의 배수와 3의 배수를 출력하세요.
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] numArr = new int[10];

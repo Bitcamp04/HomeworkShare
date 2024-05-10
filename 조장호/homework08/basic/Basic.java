@@ -15,11 +15,19 @@ public class Basic {
 		// 객체의 날짜를 2020년 4월 8일로 변경하고 출력하세요.
 		// 위의 객체의 날짜를 add 메소드를 이용해서 5년뒤 2달뒤 3일뒤로 변경하고 출력하세요.
 		Calendar cal1 = Calendar.getInstance();
-		cal1.add(Calendar.YEAR, -4);
-		cal1.add(Calendar.MONTH, -1);
-		cal1.add(Calendar.DATE, -1);
-		Date todayDate = new Date(cal1.getTimeInMillis());
-		System.out.println(todayDate.toString());
+		cal1.set(2020, 3, 8);
+		System.out.println(cal1.get(Calendar.YEAR) + "년 "
+				+ cal1.get(Calendar.MONTH) + "월 "
+				+ cal1.get(Calendar.DATE) + "일");
+		
+		cal1.add(Calendar.YEAR, 5);
+		cal1.add(Calendar.MONTH, 2);
+		cal1.add(Calendar.DATE, 3);
+//		Date todayDate = new Date(cal1.getTimeInMillis());
+//		System.out.println(todayDate.toString());
+		System.out.println(cal1.get(Calendar.YEAR) + "년 "
+				+ cal1.get(Calendar.MONTH) + "월 "
+				+ cal1.get(Calendar.DATE) + "일");
 		
 		// 2. Calendar 객체를 오늘날짜로 생성하세요.
 		// 오늘날짜를 2023-03-24 형식으로 출력하세요.

@@ -4,8 +4,13 @@ public class ArrayUtility2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] inputArr1 = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
-		int[] inputArr2 = new int[] {3, 6, 8};
+		/*
+		 * 1. 다음 두 개의 static 메소드를 갖는 ArrayUtility2클래스를 만들어보고 사용하세요
+			  static int[] concat(int[] s1, int[] s2);	// s1과 s2를 연결한 새로운 배열 리턴
+			  static int[] remove(int[] s1, int[] s2);	// s1에서 s2배열의 숫자를 모두 삭제한 새로운 배열 리턴
+		 */
+//		int[] inputArr1 = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
+//		int[] inputArr2 = new int[] {3, 6, 8};
 		
 		int[] inputArr3 = new int[] {1, 2, 3, 4, 5, 1, 2, 3};
 		int[] inputArr4 = new int[] {1, 1, 1, 1, 2, 2, 1, 3, 2, 1, 3, 2};
