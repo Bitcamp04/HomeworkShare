@@ -32,6 +32,7 @@ public class SimpleDateFormatEx {
 		
 		System.out.println(sdfFinal.format(userDateAdd3));
 
+		sc.close();
 	}
 
 }

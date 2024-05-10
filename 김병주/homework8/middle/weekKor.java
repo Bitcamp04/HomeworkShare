@@ -3,7 +3,6 @@ package homework.homework8.middle;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class weekKor {
@@ -28,7 +27,7 @@ public class weekKor {
 			e.printStackTrace();
 		}
 
-		
+		sc.close();
 	}
 
 }

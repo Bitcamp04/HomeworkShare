@@ -19,8 +19,7 @@ public class DiffTwoDate {
 		long minute = diff / ((long)1000 * 60);
 		diff %= ((long)1000 * 60);
 		
-		long second = diff / ((long)1000);
-		diff %= (long)1000;
+		long second = diff / (long)1000;
 		
 		System.out.println(hour + "시간 " + minute + "분 " + second + "초가 지났습니다.");
 	}

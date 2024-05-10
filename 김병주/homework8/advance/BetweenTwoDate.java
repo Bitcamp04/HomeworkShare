@@ -25,17 +25,45 @@ public class BetweenTwoDate {
 			cal1.setTime(sdf.parse(userDate1));
 			cal2.setTime(sdf.parse(userDate2));
 			
-			while(!cal1.equals(cal2)){
-				System.out.printf("%tF\n",cal1.getTime());
-				cal1.add(Calendar.DATE, 1);
-				}
-			
-			System.out.printf("%tF\n",cal1.getTime());
-
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+			
+		Date d1 = new Date(cal1.getTimeInMillis());
+		Date d2 = new Date(cal2.getTimeInMillis());
 		
+		int compare = d1.compareTo(d2);
+		
+		if (compare > 0) {
+			System.out.printf("%tF\n",cal2.getTime());
+		}
+		else {
+			System.out.printf("%tF\n",cal1.getTime());
+		}
+		
+		while(!cal1.equals(cal2)){
+			if (compare > 0) {
+				cal2.add(Calendar.DATE, 1);
+				System.out.printf("%tF\n",cal2.getTime());
+			}
+			else {
+				cal1.add(Calendar.DATE, 1);
+				System.out.printf("%tF\n",cal1.getTime());
+			}
+		}
+		
+		sc.close();
+	}
+	
+	public static void betweenDate(Calendar cal1, Calendar cal2, int compare) {
+		if (compare > 0) {
+			cal2.add(Calendar.DATE, 1);
+			System.out.printf("%tF\n",cal2.getTime());
+		}
+		else {
+			cal1.add(Calendar.DATE, 1);
+			System.out.printf("%tF\n",cal1.getTime());
+		}
 	}
 
 }
