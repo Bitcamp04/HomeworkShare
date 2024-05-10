@@ -55,15 +55,5 @@ public class BetweenTwoDate {
 		sc.close();
 	}
 	
-	public static void betweenDate(Calendar cal1, Calendar cal2, int compare) {
-		if (compare > 0) {
-			cal2.add(Calendar.DATE, 1);
-			System.out.printf("%tF\n",cal2.getTime());
-		}
-		else {
-			cal1.add(Calendar.DATE, 1);
-			System.out.printf("%tF\n",cal1.getTime());
-		}
-	}
 
 }
