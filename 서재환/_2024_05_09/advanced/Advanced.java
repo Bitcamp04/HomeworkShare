@@ -7,15 +7,15 @@ import java.util.*;
 public class Advanced {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        advanced1();
+        advanced1();
 //        advanced2(sc);
 //        advanced3(sc);
-        advanced4(sc);
+//        advanced4(sc);
     }
     public static void advanced1(){
         int cntLeaf=0;
         Calendar cal = Calendar.getInstance();
-        cal.set(2001,12,19);
+        cal.set(2001,11,19);
         while(true){
 
             if(isLeap(cal.get(Calendar.YEAR))){
