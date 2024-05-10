@@ -18,10 +18,8 @@ public class SimpleDateFormatEx {
 		SimpleDateFormat userSdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance();
 		
-		Date date;
 		try {
-			date = userSdf.parse(userDate);
-			cal.setTime(date);
+			cal.setTime(userSdf.parse(userDate));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

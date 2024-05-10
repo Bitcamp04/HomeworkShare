@@ -20,8 +20,7 @@ public class weekKor {
 		String userDate = sc.nextLine();
 		
 		try {
-			Date date = sdf.parse(userDate);
-			cal.setTime(date);
+			cal.setTime(sdf.parse(userDate));
 			
 			System.out.println(weeks[cal.get(Calendar.DAY_OF_WEEK)]);
 

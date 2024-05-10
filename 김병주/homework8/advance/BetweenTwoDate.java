@@ -22,10 +22,8 @@ public class BetweenTwoDate {
 		String userDate2 = sc.nextLine();
 		
 		try {
-			Date date1 = sdf.parse(userDate1);
-			Date date2 = sdf.parse(userDate2);
-			cal1.setTime(date1);
-			cal2.setTime(date2);
+			cal1.setTime(sdf.parse(userDate1));
+			cal2.setTime(sdf.parse(userDate2));
 			
 			while(!cal1.equals(cal2)){
 				System.out.printf("%tF\n",cal1.getTime());
