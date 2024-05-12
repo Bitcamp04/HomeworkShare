@@ -9,10 +9,11 @@ public class Middle {
 		Scanner sc = new Scanner(System.in);
 //		printMiddle(sc);
 		
-//		printWord();
+		printWord();
 		
 		System.out.println("10년 후 받으실 금액은" + tenYearsLaterMoney() + "원입니다.");
 		
+		sc.close();
 	}
 
 	// 1. 사용자가 입력한 문자열을 받아서 가운데 문자를 출력하세요. 
@@ -47,7 +48,28 @@ public class Middle {
 		for(int i = 0; i < initChr.length / 3; i++) {
 			System.out.println("" + initChr[i] + initChr[i + 4] + initChr[i + 8]);
 		}
+		
+		String bit = "bit";
+		String com = "com";
+		String sql = "sql";
+		String intStr = "int";
+		
+		char[] charArr2 = new char[12];
+		
+		for(int j = 0; j < charArr2.length / 4; j++) {
+			charArr2[4 * j] = bit.charAt(j);
+			charArr2[4 * j + 1] = com.charAt(j);
+			charArr2[4 * j + 2] = sql.charAt(j);
+			charArr2[4 * j + 3] = intStr.charAt(j);
+			
+		}
+		
+		for(char chr2 : charArr2) {
+			System.out.println(chr2);
+		}
+		
 	}
+	
 	
 	// 3. 처음에 은행에 맡긴 돈은 10000원입니다
 	// 금리는 연 10%입니다

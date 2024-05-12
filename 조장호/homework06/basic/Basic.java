@@ -13,7 +13,7 @@ public class Basic {
 
 		System.out.println(roundNum(16.459));
 		
-		
+		sc.close();
 	}
 	// 1. 사용자가 입력한 문자열에서 가, 바의 개수를 새서 출력하세요.
 	//   0개면 '가, 바가 존재하지 않습니다.'라고 출력.
