@@ -14,7 +14,7 @@ public class Middle {
         Number value = null;
         Set<Map.Entry<K,V>> entries = map.entrySet();
         Iterator<Map.Entry<K,V>> iterator = entries.iterator();
-        if(map.size() != 0) {
+        if(iterator.hasNext()) {
             Map.Entry<K,V> entry = iterator.next();
             max=entry.getKey().floatValue()*entry.getValue().floatValue();
             key=entry.getKey();
