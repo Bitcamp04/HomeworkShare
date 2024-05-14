@@ -9,23 +9,23 @@ package homework.homework10.middle;
 //아아 2잔 뜨아 1잔 아라 1잔 휘핑 모카 2잔 콜드브루 2잔일 때의 가격을 출력하세요.
 public enum _03_CoffeeMenu {
 	AMERICANO(2000) {
-		public int totalPrice(int optionOrder, int normalOrder) {
-			return optionOrder * 300 + normalOrder * 2000;
-		}
+		public int totalPrice(int optionOrder, int normalOrder) { 
+			return optionOrder * (this.getPrice() + 300) + normalOrder * this.getPrice(); // optionOrder가 추가금액 뿐 아니라 커피값 + 추가금액이라 수정
+		} 
 	},
 	LATTE(3000){
 		public int totalPrice(int optionOrder, int normalOrder) {
-			return optionOrder * 500 + normalOrder * 3000;
+			return optionOrder * (this.getPrice() + 500) + normalOrder * this.getPrice();
 		}
 	},
 	MOCHA(4000){
 		public int totalPrice(int optionOrder, int normalOrder) {
-			return optionOrder * 1000 + normalOrder * 4000;
+			return optionOrder * (this.getPrice() + 1000) + normalOrder * this.getPrice();
 		}
 	},
 	COLDBREW(4500){
 		public int totalPrice(int optionOrder, int normalOrder) {
-			return optionOrder * 200 + normalOrder * 4500;
+			return optionOrder * (this.getPrice() + 200) + normalOrder * this.getPrice();
 		}
 	};
 	

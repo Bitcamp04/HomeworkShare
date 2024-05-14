@@ -1,5 +1,7 @@
 package homework.homework10.basic;
 
+import chap99_homework.homework10.COUNTRY;
+
 public enum _07_Contries {
 	KOR("한국", "불고기"),
 	CHI("중국", "짜장면"),
@@ -23,6 +25,11 @@ public enum _07_Contries {
 	}
 	
 	public void notifyFood(String country) {
-		System.out.println(getCountry() + "의 대표음식은 " + getFood() + "입니다.");
+		_07_Contries[] countryArr = _07_Contries.values();
+		
+		for(_07_Contries c : countryArr) {
+			if(this.getCountry().equals(c))
+				System.out.println(c.getCountry() + "의 대표음식은 " + c.getFood() + "입니다.");
+		}
 	}
 }
