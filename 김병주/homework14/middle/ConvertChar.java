@@ -34,13 +34,17 @@ public class ConvertChar {
 		}
 		
 		charList.stream()
-				.forEach(ch -> {
-							if(ch >= 'a' && ch <= 'z')
-								System.out.println(Character.toUpperCase(ch));
-							if(ch >= 'A' && ch <= 'Z')
-								System.out.println(Character.toLowerCase(ch));
-								});
+				.map(ch -> {
+								if(ch >= 'a' && ch <= 'z')
+									return Character.toUpperCase(ch);
+								else if(ch >= 'A' && ch <= 'Z')
+									return Character.toLowerCase(ch);
+								else 
+									return null;
+								})
+				.forEach(ch -> System.out.println(ch));
 		
+		sc.close();
 	}
 
 }
