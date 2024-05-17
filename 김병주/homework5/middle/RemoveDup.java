@@ -7,6 +7,7 @@ public class RemoveDup {
 	}
 	
 	public static String Remove(String str) {
+
 		StringBuilder sb = new StringBuilder();
 		
 		if(str == null) {
