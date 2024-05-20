@@ -38,22 +38,29 @@ public class GenericCla <T>{
             }
         }
     }
-    public static <T extends Number> T getMin(List<T> list){
-        if(list.isEmpty()){
+    public static void printArr(Object[] arr){
+        for(int i = 0;i<arr.length;i++){
+            if(i%3==0){
+                System.out.println(arr[i]);
+            }
+        }
+    }
+    public static <T extends Number> T getMin(T[] arr){
+        if(arr.length==0){
             return null;
         }
-        Number min = list.get(0);
+        Number min = arr[0];
         if(min instanceof Integer || min instanceof Long){
-            for(int i = 1;i<list.size();i++){
-                if((Long) min>(Long)list.get(i)){
-                    min = list.get(i);
+            for(int i = 1;i<arr.length;i++){
+                if((Long) min>(Long)arr[i]){
+                    min = arr[i];
                 }
             }
         }
         else if(min instanceof Double || min instanceof Float){
-            for(int i = 1;i<list.size();i++){
-                if((Double) min>(Double) list.get(i)){
-                    min = list.get(i);
+            for(int i = 1;i<arr.length;i++){
+                if((Double) min>(Double) arr[i]){
+                    min = arr[i];
                 }
             }
         }
