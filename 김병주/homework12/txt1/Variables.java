@@ -83,13 +83,47 @@ public class Variables {
 //				  2 * 2 = 4
 //				  .....
 //				  2 * 9 = 18 
+		System.out.println("보고 싶은 구구단 단수를 입력해주세요.");
+		int userNum = sc.nextInt();
 		
+		for(int i = 1; i < 10; i++) {
+			System.out.println(userNum * i);
+		}
 		
 		
 //		7. 사용자가 입력한 정수로 해당 정수의 팩토리얼을 계산하여 출력하세요.(재귀메소드 없이, while이나 for 반복문을 사용)
-
+		System.out.println("정수를 입력해주세요.");
+		userNum = sc.nextInt();
+		result = 1;
+		
+		for(int i = 1; i <= userNum; i++) {
+			result *= i;
+		}
+		
+		System.out.println(result);
+		
+		
 //		8. 사용자가 입력한 10개의 정수 중 소수의 개수를 출력하세요.(소수는 1이랑 본인 말고는 나눠떨어지는 값이 없는 수입니다.)
 //		사용자가 입력할 수 있는 값은 2 ~ 30로 제한
+		List<Integer> intList2 = new ArrayList<>();
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println("2 ~ 30 사이의 정수를 입력해주세요.");
+			userNum = sc.nextInt();
+			
+			if(userNum < 2 || userNum > 30) {
+				System.out.println("2 ~ 30 사이의 정수를 입력해주세요.");
+				i--;
+				continue;
+			}
+			
+			for(int j = 2; j < userNum; j++) {
+				if(userNum % j == 0)
+					intList2.add(userNum);
+			}
+		}
+		
+		System.out.println("입력한 정수 중 소수의 개수: " + intList2.size() + "개");
 		
 	}
 	
