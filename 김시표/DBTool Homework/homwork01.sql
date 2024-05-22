@@ -439,14 +439,13 @@ SELECT ENO AS "사원번호"
 	AND COMM >= 700;
 
 
+SELECT *
+	FROM STUDENT s 
+
 
 	   
 
 
-
-     
-	
-	
 
 
 
