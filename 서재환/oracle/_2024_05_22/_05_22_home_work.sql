@@ -76,7 +76,7 @@ SELECT s.SNAME ,s2."RESULT" ,s.SYEAR
 FROM STUDENT s 
 JOIN SCORE s2 
 ON s.SNO = s2.SNO 
-WHERE s.SYEAR = 1;
+WHERE s.SYEAR = 1 AND s.MAJOR ='화학';
 
 --6) 일반화학 과목의 기말고사 점수를 검색한다
 SELECT c.CNAME ,s2."RESULT" 
@@ -115,11 +115,11 @@ ON s2."RESULT" BETWEEN s3.LOSCORE AND s3.HISCORE
 WHERE c.CNAME = '유기화학' AND s3.GRADE = 'F';
 
 --1) 학생중에 동명이인을 검색한다
-SELECT  *
+SELECT DISTINCT  *
 FROM STUDENT original
 JOIN STUDENT copy
-ON original .SNAME = COPY.SNAME 
-WHERE original .SNO <> COPY.SNO ;
+ON original.SNAME = COPY.SNAME 
+WHERE original.SNO <> COPY.SNO ;
 
 --2) 전체 교수 명단과 교수가 담당하는 과목의 이름을 학과 순으로 검색한다
 SELECT *
@@ -139,7 +139,7 @@ ORDER BY c.ST_NUM  ;
 --1) 각 과목의 과목명과 담당 교수의 교수명을 검색하라
 SELECT *
 FROM PROFESSOR p 
-full OUTER JOIN COURSE c 
+JOIN COURSE c 
 ON p.PNO =c.PNO ;
 
 --2) 화학과 학생의 기말고사 성적을 모두 검색하라
@@ -173,12 +173,12 @@ WHERE s.MAJOR ='화학';
 --5) 모든 교수의 명단과 담당 과목을 검색한다
 SELECT p.*,c.CNAME 
 FROM PROFESSOR p 
-JOIN COURSE c 
+LEFT OUTER JOIN COURSE c 
 ON p.PNO = c.PNO  ;
 
 --6) 모든 교수의 명단과 담당 과목을 검색한다(단 모든 과목도 같이 검색한다)
 SELECT p.*,c.CNAME 
 FROM PROFESSOR p 
-LEFT OUTER JOIN COURSE c 
+full OUTER JOIN COURSE c 
 ON p.PNO = c.PNO  ;
 
