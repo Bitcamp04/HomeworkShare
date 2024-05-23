@@ -142,8 +142,38 @@ public class NumberOne {
 		// 6. 사용자가 입력한 문자열을 역순으로 출력하세요.
 //		Loop.loopSix(sc);
 		// 7. 사용자가 입력한 두 정수의 최소공배수와 최대공약수를 출력하세요.
-		
-		
+//		Loop.loopSeven(sc);
+		/*
+		 * 8. 중첩 for문으로 이용해서 다음과 같이 출력하세요.
+
+			8-1.*
+			    **
+			    ***
+			    ****
+			    *****
+		*/
+//		for(int i = 0; i < 5; i++) {
+//			for(int j = 0; j <= i; j++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		/*
+			8-2. *****
+			     ****
+			     ***
+			     **
+			     *
+		 */
+//		System.out.println();
+//		for(int k = 0; k < 5; k++) {
+//			for(int m = 5; m > k; m--) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		// 9. 사용자가 q를 입력하기 전까지 계속 반복하면서 입력한 정수의 값을 더해서 출력하세요.
+//		Loop.loopNine(sc);
 		sc.close();
 	}
 	

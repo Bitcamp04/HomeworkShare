@@ -1,9 +1,7 @@
 package homework12.number01;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Loop {
@@ -118,5 +116,56 @@ public class Loop {
 		int num2 = sc.nextInt();
 		sc.nextLine();
 		
+		int gcd = 0;
+		if(num1 > num2) {
+			int iniNum1 = num1;
+			int iniNum2 = num2;
+			while(true) {
+				int n = num1 % num2;
+				if(n == 0) {
+					gcd = num2;
+					num1 = iniNum1;
+					num2 = iniNum2;
+					break;
+				} else {
+					num1 = num2;
+					num2 = n;
+				}
+			}
+			
+		} else {
+			int iniNum1 = num1;
+			int iniNum2 = num2;
+			while(true) {
+				int n = num2 % num1;
+				if(n == 0) {
+					gcd = num1;
+					num1 = iniNum1;
+					num2 = iniNum2;
+					break;
+				} else {
+					num2 = num1;
+					num1 = n;
+				}
+			}
+		}
+		
+		int lcm = num1 * num2 / gcd;
+//		System.out.println(num1 + " * " + num2 + " / " + gcd + " = " + num1 * num2 / gcd);
+		System.out.println("최대공약수 : " + gcd + ", 최소공배수 : " + lcm);
+	}
+	// 9. 사용자가 q를 입력하기 전까지 계속 반복하면서 입력한 정수의 값을 더해서 출력하세요.
+	public static void loopNine(Scanner sc) {
+		int sum = 0;
+		while(true) {
+			System.out.println("숫자를 입력해주세요. 종료하실려면 문자 q를 입력하세요.");
+			String inputStr = sc.nextLine();
+			if(inputStr.equals("q")) {
+				break;
+			}
+			
+			sum += Integer.parseInt(inputStr);
+			System.out.println("현재 sum 값 : " + sum);
+		}
 	}
 }
