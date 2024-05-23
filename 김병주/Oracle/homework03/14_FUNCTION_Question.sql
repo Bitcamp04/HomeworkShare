@@ -19,6 +19,7 @@ SELECT TRUNC(AVR * 1.125, 2)
 
 --5) 사원들의 오늘까지 근무 기간이 몇 년 몇 개월 며칠인지 검색하세요
 SELECT ENAME AS "사원명"
-	 , CONCAT(FLOOR((SYSDATE - HDATE) / 365), '년 ' || FLOOR(MOD((SYSDATE - HDATE), 365) / 30) || '개월' 
-			  || FLOOR(MOD(MOD((SYSDATE - HDATE), 365), 30)) || '일') AS "근무기간"
+	 , CONCAT(TRUNC(MONTHS_BETWEEN(SYSDATE, HDATE)/12, 0), '년 '
+	 		  || TRUNC(MOD(MONTHS_BETWEEN(SYSDATE, HDATE), 12), 0) || '개월'
+			  || TRUNC(SYSDATE - ADD_MONTHS(HDATE, MONTHS_BETWEEN(SYSDATE, HDATE))) || '일') AS "근무기간"
 	FROM EMP;
