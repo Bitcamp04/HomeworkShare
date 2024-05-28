@@ -1,0 +1,83 @@
+--1) 화학과를 제외하고 학과별로 학생들의 평점 평균을 검색하세요
+SELECT MAJOR 
+      ,AVG(AVR)
+FROM STUDENT S
+WHERE S.MAJOR NOT IN ('화학')
+GROUP BY MAJOR ;
+
+--2) 화학과를 제외한 각 학과별 평균 평점 중에 평점이 2.0 이상인 정보를 검색하세요
+SELECT MAJOR 
+      ,AVG(AVR)
+FROM STUDENT S
+WHERE S.MAJOR NOT IN ('화학')
+GROUP BY MAJOR 
+HAVING AVG(AVR) >= 2.0;
+
+--3) 기말고사 평균이 60점 이상인 학생의 정보를 검색하세요
+SELECT SS.*
+FROM STUDENT STT
+JOIN
+(
+SELECT ST.SNO,AVG(SC."RESULT") 
+FROM STUDENT ST
+JOIN SCORE SC
+ON ST.SNO = SC.SNO 
+GROUP BY ST.SNO
+HAVING AVG(SC."RESULT")>=60
+)A
+ON STT.SNO =A.SNO;
+
+--4) 강의 학점이 3학점 이상인 교수의 정보를 검색하세요
+SELECT P2.*
+FROM PROFESSOR P2
+WHERE P2.PNO IN(
+SELECT P.PNO 
+FROM PROFESSOR P
+JOIN COURSE C
+ON P.PNO = C.PNO 
+GROUP BY P.PNO
+HAVING SUM(C.ST_NUM) >= 3);
+
+--5) 기말고사 평균 성적이 핵 화학과목보다 우수한 과목의 과목명과 담당 교수명을 검색하세요
+SELECT CO.CNAME ,P.PNAME 
+FROM COURSE CC
+JOIN SCORE SS
+ON CC.CNO = SS.CNO 
+JOIN PROFESSOR P
+ON P.PNO = C.PNO 
+GROUP BY CC.CNAME ,P.PNAME 
+HAVING AVG(SS."RESULT") >
+(SELECT AVG(S."RESULT") 
+FROM SCORE S
+JOIN COURSE C
+ON S.CNO = C.CNO 
+WHERE C.CNAME = '핵화학'
+);
+
+--6) 근무 중인 직원이 4명 이상인 부서를 검색하세요(부서번호, 부서명, 인원수)
+SELECT D.DNO 
+      ,D.DNAME 
+      ,A.CNT
+FROM DEPT  D
+JOIN 
+(
+SELECT E.DNO, COUNT(*) AS CNT 
+FROM EMP E
+GROUP BY E.DNO 
+HAVING COUNT(*)>=4
+)A
+ON D.DNO = A.DNO;
+
+--7) 업무별 평균 연봉이 3000 이상인 업무를 검색하세요
+SELECT E.JOB 
+FROM EMP E
+GROUP BY E.JOB 
+HAVING AVG(E.SAL) >=3000 ;
+
+--8) 각 학과의 학년별 인원중 인원이 5명 이상인 학년을 검색하세요
+SELECT S.MAJOR 
+      ,S.SYEAR 
+      ,COUNT(*)
+FROM STUDENT S
+GROUP BY S.MAJOR ,S.SYEAR
+HAVING COUNT(*) >= 5; 
