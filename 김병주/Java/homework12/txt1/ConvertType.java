@@ -42,12 +42,33 @@ public class ConvertType {
 		System.out.println("입력한 실수의 정수형: " + (int)userNum);
 		
 //		4. 사용자가 한 개의 실수를 입력하면 그 실수의 제곱의 결과를 문자열로 변환하여 출력하세요.
-		System.out.println();
+		System.out.println("실수를 입력해주세요.");
 		
+		userNum = sc.nextDouble();
+		
+		System.out.println("입력한 실수의 제곱: " + userNum * userNum);
 		
 //		5. int형 변수 iNum = 10과 long형 변수 lNum = 20의 값을 서로 교환하세요.
+		int iNum = 10;
+		long lNum = 20L;
+		
+		int V1 = 10;
+		long V2 = 20L;
+		
+		iNum = (int)V2;
+		lNum = (long)V1;
+		
+		System.out.printf("iNum의 값: %d%nlNum의 값: %f%n",iNum, lNum);
 
 //		6. 사용자가 입력한 두 개의 문자 각각의 유니코드를 출력하세요.
+		System.out.println("문자를 입력해주세요.");
+		char userCh1 = sc.nextLine().charAt(0);
+		System.out.println("문자를 입력해주세요.");
+		char userCh2 = sc.nextLine().charAt(0);
+		
+		System.out.println("입력한 문자의 유니코드: " + (int)userCh1 + ", " + (int)userCh2);
+		
+		sc.close();
 	}
 
 }
