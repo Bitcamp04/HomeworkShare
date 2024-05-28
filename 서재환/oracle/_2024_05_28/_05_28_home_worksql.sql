@@ -96,6 +96,7 @@ SELECT * FROM PE_TEMP st ;
 
 --5) EMP 테이블을 참조하여 EMP2 테이블을 만들고 DNO = 30인 사원의 보너스를 15프로 상승시킨 값으로 변경하시고 
 --   DNO = 20인 사원의 급여를 10프로 상승시킨 값으로 변경하세요.
+--dno =10  5프로 상승
 CREATE TABLE EMP2 AS 
 SELECT * FROM EMP ;
 SELECT *
@@ -103,6 +104,9 @@ FROM EMP2;
 UPDATE EMP2 
 SET COMM= COMM*1.15
 WHERE DNO = '30';
+UPDATE EMP2 
+SET COMM= COMM*1.05
+WHERE DNO = '10';
 UPDATE EMP2 
 SET SAL= SAL*1.1
 WHERE DNO = '20';
