@@ -1,0 +1,88 @@
+--1) 과목번호, 과목이름, 과목별 평균 기말고사 성적을 갖는 레코드의 배열을 만들고
+--   기본 LOOP문을 이용해서 모든 과목의 과목번호, 과목이름, 과목별 평균 기말고사 성적을 출력하세요.
+set serveroutput on;
+
+SELECT C.CNO , C.CNAME ,ROUND(AVG(SC.RESULT),2)
+FROM COURSE C
+JOIN SCORE SC
+ON c.cno = SC.CNO
+GROUP BY C.CNO,C.CNAME;
+
+DECLARE 
+    TYPE REC_C_SC IS RECORD (
+        CNO VARCHAR2(8),
+        CNAME VARCHAR2(20),
+        AVG_RESULT NUMBER(5,2)
+    );
+    TYPE REC_C_SC_ARR IS TABLE OF REC_C_SC
+    INDEX BY PLS_INTEGER;
+    RECCSCARR REC_C_SC_ARR;
+    IDX NUMBER:=1;
+BEGIN
+    FOR C IN (
+        SELECT C.CNO, C.CNAME, ROUND(AVG(SC.RESULT),2) AS AVG_RESULT 
+        FROM COURSE C
+        JOIN SCORE SC ON C.CNO = SC.CNO
+        GROUP BY C.CNO, C.CNAME
+    ) LOOP
+        RECCSCARR(IDX).CNO := C.CNO;
+        RECCSCARR(IDX).CNAME := C.CNAME;
+        RECCSCARR(IDX).AVG_RESULT := C.AVG_RESULT;
+        IDX := IDX + 1;
+    END LOOP;
+
+    IDX := 1;
+    LOOP
+    EXIT WHEN NOT RECCSCARR.EXISTS(IDX);
+    DBMS_OUTPUT.PUT_LINE(RECCSCARR(IDX).CNO);
+    DBMS_OUTPUT.PUT_LINE(RECCSCARR(IDX).CNAME);
+    DBMS_OUTPUT.PUT_LINE(RECCSCARR(IDX).AVG_RESULT);
+    IDX:=IDX+1;
+    END LOOP;
+END;
+/
+
+--2) 학생번호, 학생이름과 학생별 평균 기말고사 성적을 갖는 테이블 T_STAVGSC를 만들고
+--   커서를 이용하여 학생번호, 학생이름, 학생별 평균 기말고사 성적을 조회하고 
+--   조회된 데이터를 생성한 테이블인 T_STAVGSC에 저장하세요.
+CREATE TABLE T_STAVGSC(
+    SNO VARCHAR2(8),
+    SNAME VARCHAR2(20),
+    AVG_RES NUMBER(5,2)
+);
+DELETE FROM t_stavgsc;
+INSERT INTO T_STAVGSC(SNO,SNAME,AVG_RES) 
+    SELECT ST.SNO,ST.SNAME,AVG(RESULT)
+    FROM STUDENT ST
+    JOIN SCORE SC
+    ON ST.SNO = SC.SNO
+    GROUP BY ST.SNO,ST.SNAME;
+
+DECLARE
+    CURSOR A IS 
+        SELECT ST.SNO,ST.SNAME,AVG(SC.RESULT)
+        FROM STUDENT ST
+        JOIN SCORE SC
+        ON ST.SNO = SC.SNO
+        GROUP BY ST.SNO,ST.SNAME;
+    T_STAVGSC_ROW T_STAVGSC%ROWTYPE;
+BEGIN
+    OPEN A;
+    LOOP 
+    FETCH A INTO T_STAVGSC_ROW;
+    EXIT WHEN A%NOTFOUND ;
+    INSERT INTO  T_STAVGSC VALUES T_STAVGSC_ROW;
+    END LOOP;
+    CLOSE A;
+END;
+/
+
+
+
+
+
+
+
+
+
+
